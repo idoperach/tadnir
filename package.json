@@ -1,0 +1,19 @@
+{
+  "name": "tadnir",
+  "version": "0.0.0",
+  "description": "a new design to tadnir.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idoperach1/tadnir.git"
+  },
+  "author": "Ido Perach",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idoperach1/tadnir/issues"
+  },
+  "homepage": "https://github.com/idoperach1/tadnir#readme"
+}
