@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions"
+          ]
+        },
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    "lodash",
+    "syntax-dynamic-import"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "dynamic-import-node",
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}

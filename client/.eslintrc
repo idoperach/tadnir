@@ -1,0 +1,4 @@
+{
+  "extends": "noamokman/react",
+  "parser": "babel-eslint"
+}
