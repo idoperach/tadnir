@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/idoperach1/tadnir/issues"
   },
-  "homepage": "https://github.com/idoperach1/tadnir#readme"
+  "homepage": "https://github.com/idoperach1/tadnir#readme",
+  "devDependencies": {
+
+  },
+  "dependencies": {
+    "dotenv-extended": "^2.0.2"
+  }
 }
