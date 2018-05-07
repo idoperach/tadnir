@@ -4,7 +4,19 @@
   "description": "a new design to tadnir.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "babel server -d dist/server -s",
+    "copy": "copyfiles package.json .env.defaults .env.schema dist",
+    "build": "npm run babel && npm run build-client && npm run copy",
+    "build-client": "webpack --env=production --define process.env.NODE_ENV=\"'production'\"",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e",
+    "lint": "run-p lint-*",
+    "lint-server": "eslint server --fix",
+    "lint-client": "eslint client --fix",
+    "dev": "run-p client-dev server-dev",
+    "server-dev": "nodemon --watch server --exec \"babel-node\" server/app.js",
+    "client-dev": "webpack-dev-server --open",
+    "prod": "npm run build && node dist/server/app.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +29,49 @@
   },
   "homepage": "https://github.com/idoperach1/tadnir#readme",
   "devDependencies": {
-
+    "@commitlint/cli": "^5.2.5",
+    "@commitlint/config-angular": "^5.1.1",
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.4",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "commitlint": "^6.2.0",
+    "compression-webpack-plugin": "^1.1.2",
+    "copyfiles": "^2.0.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.13.1",
+    "eslint-config-noamokman": "^7.2.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.5.0",
+    "eslint-plugin-lodash": "^2.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-unicorn": "^3.0.1",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "precommit": "^1.2.2",
+    "preload-webpack-plugin": "^2.3.0",
+    "run-p": "0.0.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.7.0",
+    "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "dotenv-extended": "^2.0.2"
+    "body-parser": "^1.18.2",
+    "dotenv-extended": "^2.0.2",
+    "express": "^4.16.3",
+    "express-async-router": "^0.1.13",
+    "express-json-error-handler": "^2.0.0"
   }
 }
